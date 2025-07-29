@@ -1,4 +1,7 @@
+import ReactCountryFlag from 'react-country-flag'
 import './MovieList.css'
+import languageCodes from '../../utils/languageCodes'
+import FlagComponent from '../FlagComponent/FlagComponent'
 
 function MovieList({ movies, series }) {
     return (
@@ -6,11 +9,15 @@ function MovieList({ movies, series }) {
             <h2>Movies</h2>
             <ul className='cardList'>
                 {movies.map((movieItem) => (
-                    <li>
+                    <li key={movieItem.id}>
                         <div className='card'>
                             <p>{movieItem.title}</p>
                             <p>{movieItem.original_title}</p>
-                            <p>{movieItem.original_language}</p>
+                            <FlagComponent movieLanguage={movieItem.original_language} svg />
+                            {/* {languageCodes.find(language => {
+                                language.code === movieItem.original_language
+                                return language.country
+                            })} */}
                             <p>{movieItem.vote_average}</p>
                         </div>
                     </li>
@@ -20,11 +27,11 @@ function MovieList({ movies, series }) {
             <h2>TV Series</h2>
             <ul className='cardList'>
                 {series.map((seriesItem) => (
-                    <li>
+                    <li key={seriesItem.id}>
                         <div className='card'>
                             <p>{seriesItem.name}</p>
                             <p>{seriesItem.original_name}</p>
-                            <p>{seriesItem.original_language}</p>
+                            <FlagComponent movieLanguage={seriesItem.original_language} />
                             <p>{seriesItem.vote_average}</p>
                         </div>
                     </li>

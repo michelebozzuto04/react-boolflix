@@ -23,6 +23,8 @@ function App() {
 
   }
 
+  console.log(movies, series)
+
   return (
     <>
       <Header searchInput={searchInput} setSearchInput={setSearchInput} handleSearch={handleSearch} />
