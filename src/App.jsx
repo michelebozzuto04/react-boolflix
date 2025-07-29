@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './index.css'
+import Header from './components/Header/Header';
+import MovieList from './components/MovieList/MovieList';
 
 function App() {
 
@@ -17,22 +19,8 @@ function App() {
 
   return (
     <>
-      <header>
-        <form onSubmit={(e) => handleSearch(e)}>
-          <input
-            type='text'
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-          />
-          <button type='submit'>Search</button>
-        </form>
-
-        <ul>
-          {results.map((result) => (
-            <li>{result.title}</li>
-          ))}
-        </ul>
-      </header>
+      <Header searchInput={searchInput} setSearchInput={setSearchInput} handleSearch={handleSearch} />
+      <MovieList results={results} />
     </>
   )
 }
