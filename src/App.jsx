@@ -6,7 +6,8 @@ import MovieList from './components/MovieList/MovieList';
 function App() {
 
   const [searchInput, setSearchInput] = useState("");
-  const [results, setResults] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [series, setSeries] = useState([]);
 
   const api_key = import.meta.env.VITE_API_KEY;
 
@@ -14,13 +15,18 @@ function App() {
     e.preventDefault()
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchInput}`)
       .then(res => res.json())
-      .then(data => setResults(data.results))
+      .then(data => setMovies(data.results))
+
+    fetch(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${searchInput}`)
+      .then(res => res.json())
+      .then(data => setSeries(data.results))
+
   }
 
   return (
     <>
       <Header searchInput={searchInput} setSearchInput={setSearchInput} handleSearch={handleSearch} />
-      <MovieList results={results} />
+      <MovieList movies={movies} series={series} />
     </>
   )
 }
