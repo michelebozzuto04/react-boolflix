@@ -3,3 +3,12 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 40px;
 }
+
+.listTitle {
+    display: inline-block;
+    margin: 2rem 0rem;
+    font-size: 35px;
+    font-weight: 700;
+    color: white;
+    border-bottom: 2px solid red;
+}

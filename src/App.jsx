@@ -6,8 +6,8 @@ import MovieList from './components/MovieList/MovieList';
 function App() {
 
   const [searchInput, setSearchInput] = useState("");
-  const [movies, setMovies] = useState([]);
-  const [series, setSeries] = useState([]);
+  const [movies, setMovies] = useState(null);
+  const [series, setSeries] = useState(null);
 
   const api_key = import.meta.env.VITE_API_KEY;
 
@@ -28,7 +28,10 @@ function App() {
   return (
     <>
       <Header searchInput={searchInput} setSearchInput={setSearchInput} handleSearch={handleSearch} />
-      <MovieList movies={movies} series={series} />
+
+      <MovieList listTitle={"MOVIES"} movies={movies} />
+
+      <MovieList listTitle={"TV SERIES"} movies={series} />
     </>
   )
 }

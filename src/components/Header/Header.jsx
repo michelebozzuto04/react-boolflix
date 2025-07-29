@@ -27,7 +27,7 @@ function Header({ searchInput, setSearchInput, handleSearch }) {
                         </form>
                     </div>
 
-                    <IoNotifications size={25} color='white' />
+                    <IoNotifications className='icon' size={25} color='white' />
                 </div>
             </header>
         </div>

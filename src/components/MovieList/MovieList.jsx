@@ -2,24 +2,22 @@ import './MovieList.css'
 import '../../index.css'
 import CardComponent from '../CardComponent/CardComponent';
 
-function MovieList({ movies, series }) {
+function MovieList({ movies, listTitle }) {
 
     return (
-        <main className='container'>
-            <h2>Movies</h2>
-            <ul className='cardList'>
-                {movies.map((movieItem) => (
-                    <CardComponent key={movieItem.id} movieItem={movieItem} />
-                ))}
-            </ul>
-
-            <h2>TV Series</h2>
-            <ul className='cardList'>
-                {series.map((seriesItem) => (
-                    <CardComponent key={seriesItem.id} movieItem={seriesItem} />
-                ))}
-            </ul>
-        </main>
+        <div className='container'>
+            {
+                movies != null ?
+                    <>
+                        <h2 className='listTitle'>{listTitle}</h2>
+                        <ul className='cardList'>
+                            {movies.map((movieItem) => (
+                                <CardComponent key={movieItem.id} movieItem={movieItem} />
+                            ))}
+                        </ul>
+                    </> : null
+            }
+        </div>
     )
 }
 
