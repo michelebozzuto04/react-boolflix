@@ -11,13 +11,10 @@ function MovieList({ movies, series }) {
                 {movies.map((movieItem) => (
                     <li key={movieItem.id}>
                         <div className='card'>
+                            <img src={`https://image.tmdb.org/t/p/w342${movieItem.poster_path}`} />
                             <p>{movieItem.title}</p>
                             <p>{movieItem.original_title}</p>
                             <FlagComponent movieLanguage={movieItem.original_language} svg />
-                            {/* {languageCodes.find(language => {
-                                language.code === movieItem.original_language
-                                return language.country
-                            })} */}
                             <p>{movieItem.vote_average}</p>
                         </div>
                     </li>
@@ -29,6 +26,7 @@ function MovieList({ movies, series }) {
                 {series.map((seriesItem) => (
                     <li key={seriesItem.id}>
                         <div className='card'>
+                            <img src={`https://image.tmdb.org/t/p/w342${seriesItem.poster_path}`} />
                             <p>{seriesItem.name}</p>
                             <p>{seriesItem.original_name}</p>
                             <FlagComponent movieLanguage={seriesItem.original_language} />
