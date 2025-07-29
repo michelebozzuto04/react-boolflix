@@ -1,10 +1,11 @@
 import './MovieList.css'
+import '../../index.css'
 import CardComponent from '../CardComponent/CardComponent';
 
 function MovieList({ movies, series }) {
 
     return (
-        <>
+        <main className='container'>
             <h2>Movies</h2>
             <ul className='cardList'>
                 {movies.map((movieItem) => (
@@ -18,7 +19,7 @@ function MovieList({ movies, series }) {
                     <CardComponent key={seriesItem.id} movieItem={seriesItem} />
                 ))}
             </ul>
-        </>
+        </main>
     )
 }
 
