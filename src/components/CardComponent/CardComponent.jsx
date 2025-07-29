@@ -1,6 +1,6 @@
 import './CardComponent.css'
 import FlagComponent from '../FlagComponent/FlagComponent'
-import { IoStar } from 'react-icons/io5';
+import { IoStar, IoStarOutline } from 'react-icons/io5';
 
 function CardComponent({ movieItem }) {
 
@@ -8,8 +8,12 @@ function CardComponent({ movieItem }) {
         const rating = Math.ceil((movieVote * 5) / 10);
 
         var stars = [];
-        for (var i = 0; i < rating; i++) {
-            stars.push(<IoStar color='#ffc400' />);
+        if (rating > 0) {
+            for (var i = 0; i < rating; i++) {
+                stars.push(<IoStar color='#ffc400' />);
+            }
+        } else {
+            stars.push(<IoStarOutline color='rgba(255, 255, 255, 0.6)' />)
         }
         return stars;
     }
@@ -26,7 +30,10 @@ function CardComponent({ movieItem }) {
                             <p className='originalTitle'><span>Otiginal title:</span> {movieItem.original_title || movieItem.original_name}</p>
                             : null
                     }
-                    <FlagComponent movieLanguage={movieItem.original_language} svg />
+                    <div className="language">
+                        <span>Language: </span>
+                        <FlagComponent movieLanguage={movieItem.original_language} svg />
+                    </div>
                     <div className="rating">
                         <span>Rating: </span>
                         {
