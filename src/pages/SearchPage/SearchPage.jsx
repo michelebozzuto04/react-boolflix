@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../../index.css'
 import './SearchPage.css'
 import ExploreHeader from '../../components/Header/ExploreHeader';
@@ -11,6 +11,16 @@ function SearchPage() {
     const [series, setSeries] = useState(null);
 
     const api_key = import.meta.env.VITE_API_KEY;
+
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${api_key}`)
+            .then(res => res.json())
+            .then(data => setMovies(data?.results))
+
+        fetch(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=${api_key}`)
+            .then(res => res.json())
+            .then(data => setSeries(data?.results))
+    }, [])
 
     function handleSearch(e) {
         e.preventDefault()
@@ -30,13 +40,8 @@ function SearchPage() {
         <>
             <ExploreHeader searchInput={searchInput} setSearchInput={setSearchInput} handleSearch={handleSearch} />
 
-            {movies === null ?
-                (<h1>Search something...</h1>) :
-                <>
-                    <MovieList listTitle={"MOVIES"} movies={movies} />
-                    <MovieList listTitle={"TV SERIES"} movies={series} />
-                </>
-            }
+            <MovieList listTitle={"MOVIES"} movies={movies} />
+            <MovieList listTitle={"TV SERIES"} movies={series} />
         </>
     )
 }
