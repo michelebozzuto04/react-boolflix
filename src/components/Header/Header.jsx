@@ -1,4 +1,4 @@
-import { IoNotifications, IoSearchSharp } from 'react-icons/io5'
+import { IoNotifications, IoSearchOutline, IoSearchSharp } from 'react-icons/io5'
 import logo from '../../assets/boolflix_logo.png'
 import './Header.css'
 
@@ -22,7 +22,7 @@ function Header({ searchInput, setSearchInput, handleSearch }) {
                                 onChange={(e) => setSearchInput(e.target.value)}
                             />
                             <button className='searchButton' type='submit'>
-                                <IoSearchSharp type='submit' size={25} color='white' />
+                                <IoSearchOutline type='submit' size={25} color='white' />
                             </button>
                         </form>
                     </div>

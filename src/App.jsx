@@ -15,11 +15,11 @@ function App() {
     e.preventDefault()
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchInput}`)
       .then(res => res.json())
-      .then(data => setMovies(data.results))
+      .then(data => setMovies(data?.results))
 
     fetch(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${searchInput}`)
       .then(res => res.json())
-      .then(data => setSeries(data.results))
+      .then(data => setSeries(data?.results))
 
   }
 
