@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import FlagComponent from '../../components/FlagComponent/FlagComponent';
 import { IoPlay, IoStar, IoStarOutline } from 'react-icons/io5';
 import './MoviePage.css'
@@ -14,6 +14,11 @@ function MoviePage() {
     const [movieCast, setMovieCast] = useState([])
 
     const { id } = useParams();
+    const [searchParams] = useSearchParams();
+
+    const type = searchParams.get('type');
+
+    console.log(id, type)
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`)
@@ -23,13 +28,13 @@ function MoviePage() {
     }, [])
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`)
+        fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`)
             .then(res => res.json())
             .then(data => setMovie(data))
             .catch(error => console.error(error));
 
 
-        fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_API_KEY}`)
+        fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${import.meta.env.VITE_API_KEY}`)
             .then(res => res.json())
             .then(data => setMovieCast(data.cast))
             .catch(error => console.error(error));

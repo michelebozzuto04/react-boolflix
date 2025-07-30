@@ -49,7 +49,7 @@ function CardComponent({ movieItem }) {
     }
 
     return (
-        <Link key={movieItem.id} to={`/details/${movieItem.id}`}>
+        <Link key={movieItem.id} to={`/details/${movieItem.id}${movieItem.name ? '?type=tv' : '?type=movie'}`}>
             <li key={movieItem.id}>
                 <div className='card'>
                     <img src={`https://image.tmdb.org/t/p/w342${movieItem.poster_path}`} />
