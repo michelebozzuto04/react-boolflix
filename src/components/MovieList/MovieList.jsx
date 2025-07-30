@@ -9,9 +9,9 @@ function MovieList({ movies, listTitle }) {
             {
                 movies != null ?
                     <>
-                        <h2 className='listTitle'>{listTitle}</h2>
+                        {listTitle && (<h2 className='listTitle'>{listTitle}</h2>)}
                         <ul className='cardList'>
-                            {movies.map((movieItem) => (
+                            {movies?.map((movieItem) => (
                                 <CardComponent key={movieItem.id} movieItem={movieItem} />
                             ))}
                         </ul>

@@ -2,6 +2,7 @@ import './CardComponent.css'
 import FlagComponent from '../FlagComponent/FlagComponent'
 import { IoStar, IoStarOutline } from 'react-icons/io5';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function CardComponent({ movieItem }) {
 
@@ -21,11 +22,11 @@ function CardComponent({ movieItem }) {
         var stars = [];
         if (rating > 0) {
             for (var i = 0; i < 5; i++) {
-                i < rating ? stars.push(<IoStar color='#ffc400' />) : stars.push(<IoStarOutline color='rgba(255, 255, 255, 0.6)' />)
+                i < rating ? stars.push(<IoStar key={i} color='#ffc400' />) : stars.push(<IoStarOutline key={i} color='rgba(255, 255, 255, 0.6)' />)
             }
         } else {
             for (var i = 0; i < 5; i++) {
-                stars.push(<IoStarOutline color='rgba(255, 255, 255, 0.6)' />)
+                stars.push(<IoStarOutline key={i} color='rgba(255, 255, 255, 0.6)' />)
             }
         }
         return stars;
@@ -48,32 +49,34 @@ function CardComponent({ movieItem }) {
     }
 
     return (
-        <li key={movieItem.id}>
-            <div className='card'>
-                <img src={`https://image.tmdb.org/t/p/w342${movieItem.poster_path}`} />
+        <Link key={movieItem.id} to={`/details/${movieItem.id}`}>
+            <li key={movieItem.id}>
+                <div className='card'>
+                    <img src={`https://image.tmdb.org/t/p/w342${movieItem.poster_path}`} />
 
-                <div className="cardDetails">
-                    <p className='title'><span>Title:</span> {movieItem.title || movieItem.name}</p>
-                    {
-                        movieItem.title !== movieItem.original_title || movieItem.name !== movieItem.original_name ?
-                            <p className='originalTitle'><span>Otiginal title:</span> {movieItem.original_title || movieItem.original_name}</p>
-                            : null
-                    }
-                    <p className='genre'><span>Genre: </span>{fetchGenre(movieItem.genre_ids)}</p>
-                    <div className="language">
-                        <span>Language: </span>
-                        <FlagComponent movieLanguage={movieItem.original_language} svg />
-                    </div>
-                    <div className="rating">
-                        <span>Rating: </span>
+                    <div className="cardDetails">
+                        <p className='title'><span>Title:</span> {movieItem.title || movieItem.name}</p>
                         {
-                            renderRating(movieItem.vote_average)
+                            movieItem.title !== movieItem.original_title || movieItem.name !== movieItem.original_name ?
+                                <p className='originalTitle'><span>Otiginal title:</span> {movieItem.original_title || movieItem.original_name}</p>
+                                : null
                         }
+                        <p className='genre'><span>Genre: </span>{fetchGenre(movieItem.genre_ids)}</p>
+                        <div className="language">
+                            <span>Language: </span>
+                            <FlagComponent movieLanguage={movieItem.original_language} svg />
+                        </div>
+                        <div className="rating">
+                            <span>Rating: </span>
+                            {
+                                renderRating(movieItem.vote_average)
+                            }
+                        </div>
+                        <p className='overview'><span>Overview:</span> {movieItem.overview}</p>
                     </div>
-                    <p className='overview'><span>Overview:</span> {movieItem.overview}</p>
                 </div>
-            </div>
-        </li>
+            </li>
+        </Link>
     )
 }
 

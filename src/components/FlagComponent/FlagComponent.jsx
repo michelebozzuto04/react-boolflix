@@ -2,12 +2,19 @@ import ReactCountryFlag from 'react-country-flag'
 import languageCodes from '../../utils/languageCodes'
 import { lazy } from 'react'
 
-function FlagComponent({ movieLanguage }) {
+function FlagComponent({ movieLanguage, size }) {
 
     const langCodeConverted = languageCodes.find((language) => language.code === movieLanguage);
 
     return (
-        < ReactCountryFlag countryCode={langCodeConverted?.country} svg />
+        < ReactCountryFlag
+            style={{
+                fontSize: `${size}px`,
+                lineHeight: `${size}px`
+            }}
+            countryCode={langCodeConverted?.country}
+            svg
+        />
     )
 }
 
