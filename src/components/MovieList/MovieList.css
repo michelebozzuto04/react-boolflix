@@ -1,5 +1,6 @@
 .cardList {
     display: grid;
+    list-style: none;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 40px;
 }

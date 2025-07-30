@@ -41,27 +41,21 @@ function MoviePage() {
         var stars = [];
         if (rating > 0) {
             for (var i = 0; i < 5; i++) {
-                i < rating ? stars.push(<IoStar size={25} color='#ffc400' />) : stars.push(<IoStarOutline size={25} color='rgba(255, 255, 255, 0.6)' />)
+                i < rating ? stars.push(<IoStar key={i} size={25} color='#ffc400' />) : stars.push(<IoStarOutline key={i} size={25} color='rgba(255, 255, 255, 0.6)' />)
             }
         } else {
             for (var i = 0; i < 5; i++) {
-                stars.push(<IoStarOutline size={25} key={i} color='rgba(255, 255, 255, 0.6)' />)
+                stars.push(<IoStarOutline key={i} size={25} color='rgba(255, 255, 255, 0.6)' />)
             }
         }
         return stars;
     }
 
     function fetchGenre(movieItemGenres) {
-        if (!Array.isArray(movieItemGenres) || !Array.isArray(movieGenres)) return "";
+        const displayGenres = []
+        movieItemGenres?.forEach(genre => displayGenres.push(genre.name))
 
-        const genreNames = movieItemGenres
-            .map(genreId => {
-                const found = movieGenres.find(g => g.id === genreId);
-                return found ? found.name : null;
-            })
-            .filter(Boolean); // remove nulls
-
-        return genreNames.join(", ");
+        return displayGenres.join(", ");
     }
 
     function fetchActors(movieCast) {
@@ -102,9 +96,9 @@ function MoviePage() {
                             <p className='originalTitle'><span>Otiginal title:</span> {movie?.original_title || movie?.original_name}</p>
                             : null
                     }
-                    <p className='genre'>{fetchGenre(movie?.genre_ids)}</p>
                     <p className='overview'>{movie?.overview}</p>
                     <p className='cast'><span>Cast: </span>{fetchActors(movieCast)}</p>
+                    <p className='genre'><span>Genre: </span>{fetchGenre(movie?.genres)}</p>
                 </div>
             </div>
         </>

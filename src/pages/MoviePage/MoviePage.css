@@ -67,17 +67,17 @@
             margin-bottom: 30px;
         }
 
-        .genre {
-            margin-bottom: 5px;
+        .cast {
+            margin-bottom: 10px;
             color: rgba(255, 255, 255, 0.6);
-            font-weight: 600;
 
             span {
                 color: white;
             }
         }
 
-        .cast {
+        .genre {
+            margin-bottom: 5px;
             color: rgba(255, 255, 255, 0.6);
 
             span {
@@ -106,85 +106,4 @@
         }
 
     }
-
-    /* .cardDetails {
-        padding: 2rem 1rem;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.8);
-        top: 0;
-        right: 0;
-        overflow: hidden;
-
-        .title {
-            margin-bottom: 5px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 600;
-
-            span {
-                color: white;
-            }
-        }
-
-        .originalTitle {
-            margin-bottom: 5px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 600;
-
-            span {
-                color: white;
-            }
-        }
-
-        .rating {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-            font-weight: 600;
-
-            span {
-                color: white;
-                margin-right: 5px;
-            }
-        }
-
-        .genre {
-            margin-bottom: 5px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 600;
-
-            span {
-                color: white;
-            }
-        }
-
-        .language {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-            font-weight: 600;
-
-            span {
-                color: white;
-                margin-right: 5px;
-            }
-        }
-
-        .overview {
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 600;
-            overflow: hidden;
-            line-clamp: 6;
-            -webkit-line-clamp: 6;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            text-overflow: hidden;
-
-            span {
-                color: white;
-            }
-        }
-    } */
 }
