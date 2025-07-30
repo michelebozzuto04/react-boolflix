@@ -10,7 +10,7 @@ function CardComponent({ movieItem }) {
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`)
             .then(res => res.json())
-            .then(data => setMovieGenres(data))
+            .then(data => setMovieGenres(data.genres))
     }, [])
 
     console.log(movieGenres)
@@ -35,13 +35,16 @@ function CardComponent({ movieItem }) {
         const genreNames = [];
 
         for (let i = 0; i < movieGenres.length; i++) {
-            const currentGenre = movieGenres?.genres.find(genre => genre.id === movieItemGenres[i])
-            genreNames.push(currentGenre?.name);
+            const currentGenre = movieGenres?.find(genre => genre.id === movieItemGenres[i])
+            if (currentGenre !== undefined) {
+                genreNames.push(currentGenre?.name);
+            }
+
         }
 
-        console.log(genreNames)
+        const displayGenres = genreNames.join(", ");
 
-        return genreNames
+        return displayGenres
     }
 
     return (
@@ -56,7 +59,7 @@ function CardComponent({ movieItem }) {
                             <p className='originalTitle'><span>Otiginal title:</span> {movieItem.original_title || movieItem.original_name}</p>
                             : null
                     }
-                    <p><span>Genre:</span> {fetchGenre(movieItem.genre_ids)}</p>
+                    <p className='genre'><span>Genre: </span>{fetchGenre(movieItem.genre_ids)}</p>
                     <div className="language">
                         <span>Language: </span>
                         <FlagComponent movieLanguage={movieItem.original_language} svg />

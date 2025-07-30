@@ -18,6 +18,7 @@
         background-color: rgba(0, 0, 0, 0.8);
         top: 0;
         right: 0;
+        overflow: hidden;
 
         .title {
             margin-bottom: 5px;
@@ -51,6 +52,16 @@
             }
         }
 
+        .genre {
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+
+            span {
+                color: white;
+            }
+        }
+
         .language {
             display: flex;
             align-items: center;
@@ -71,7 +82,7 @@
             -webkit-line-clamp: 6;
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            text-overflow: ellipsis;
+            text-overflow: hidden;
 
             span {
                 color: white;
