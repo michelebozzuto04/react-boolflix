@@ -75,7 +75,28 @@
     gap: 20px;
 }
 
+.icon {
+    font-weight: 600;
+    color: white;
+}
+
 .icon:hover {
     cursor: pointer;
     scale: 105%;
+}
+
+.notification {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    color: white;
+    width: 15px;
+    height: 15px;
+    font-size: 8px;
+    line-height: 8px;
+    background-color: rgb(174, 22, 22);
+    border-radius: 15px;
 }

@@ -25,11 +25,22 @@ function Header({ searchInput, setSearchInput, handleSearch }) {
                 </ul>
 
                 <div style={{ width: '33%', justifyContent: 'flex-end' }} className="actionsContainer">
-                    <Link to={"/explore"}>
+                    <Link className='icon' to={"/explore"}>
                         <IoSearch type='submit' size={25} color='white' />
                     </Link>
 
-                    <IoNotifications className='icon' size={25} color='white' />
+                    <div className='icon' style={{ position: 'relative', display: 'flex' }}>
+                        <IoNotifications size={25} color='white' />
+                        <span className="notification">1</span>
+                    </div>
+
+                    <div className='icon'>
+                        <a>ACCEDI</a>
+                    </div>
+
+                    <div className='icon' style={{ width: 30, verticalAlign: 'middle' }}>
+                        <img src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png' />
+                    </div>
                 </div>
             </header >
         </div >

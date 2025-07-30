@@ -40,7 +40,18 @@ function ExploreHeader({ searchInput, setSearchInput, handleSearch }) {
                         </form>
                     </div>
 
-                    <IoNotifications className='icon' size={25} color='white' />
+                    <div className='icon' style={{ position: 'relative', display: 'flex' }}>
+                        <IoNotifications className='icon' size={25} color='white' />
+                        <span className="notification">1</span>
+                    </div>
+
+                    <div className='icon'>
+                        <a>ACCEDI</a>
+                    </div>
+
+                    <div className='icon' style={{ width: 30, verticalAlign: 'middle' }}>
+                        <img src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png' />
+                    </div>
                 </div>
             </header>
         </div>
