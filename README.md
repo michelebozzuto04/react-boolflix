@@ -1,12 +1,55 @@
-# React + Vite
+# 🎬 React Boolflix — Netflix Frontend Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Clone frontend di una piattaforma streaming in stile Netflix sviluppato in React.
+L'applicazione consente la ricerca e visualizzazione di film e serie TV tramite integrazione con API esterne.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* React.js
+* JavaScript (ES6+)
+* CSS
+* REST API esterna (movies/TV database)
+* Axios / Fetch
+* Component-based architecture
 
-## Expanding the ESLint configuration
+## ✨ Funzionalità
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Ricerca film e serie TV tramite API esterna
+* Visualizzazione risultati dinamica
+* Poster, titoli e informazioni principali
+* Gestione stato con React
+* Rendering condizionale risultati
+* UI ispirata a piattaforme streaming
+
+## 🧠 Concetti Applicati
+
+* Chiamate API REST
+* Gestione stato React
+* Mapping liste dinamiche
+* Componentizzazione UI
+* Gestione eventi di ricerca
+* Data transformation da risposta API
+
+## ⚙️ Installazione Locale
+
+```bash
+git clone https://github.com/michelebozzuto04/react-boolflix
+cd react-boolflix
+npm install
+npm run dev
+```
+
+## 🔮 Miglioramenti Futuri
+
+* Sistema di categorie
+* Dettaglio singolo film
+* Sistema preferiti
+* Routing pagine
+* Gestione loading & error state
+* Skeleton UI
+
+## 👤 Autore
+
+Michele Bozzuto
+Junior Frontend Developer
+
